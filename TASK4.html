@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference Between Block and Global Scope</title>
+    <h1 style="text-align: center; color: red;">TASK 4</h1>
+</head>
+<body>
+<h1>Bloack scope</h1> 
+<script>
+    {
+let ag=19;
+document.write("My Age is"+ag);
+    }
+document.write("My Age is"+ag);
+</script>
+<hr>
+<h2>Global Scope</h2>
+<script>
+    {
+var ag1=68;
+document.write("My Mother age is:"+ag1+"<br>");
+    }
+    document.write("my monther age is: "+ag1);
+</script>
+</body>
+</html>
