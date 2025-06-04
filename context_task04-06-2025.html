@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <title>Student Information Task 04-06-2025 use context</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+  </head>
+<body>
+    <h2>Student information ( Task 04-06-2025 )</h2>
+  <div id="Myinfo">
+  </div>
+
+  <script>
+    // Student data object
+    const student = {
+      name: 'Nagaraja',
+      age: 39,
+      email: 'nagraja_ht@yahoo.com'
+    };
+
+    
+    const container = document.getElementById('Myinfo');
+
+    container.innerHTML = `
+      <p><b>Name:</b> ${student.name}</p>
+      <p><b>Age:</b> ${student.age}</p>
+      <p><b>Email:</b> ${student.email}</p>
+    `;
+  </script>
+</body>
+</html>
