@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit user and job task 13-6-2025</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function EditForm() {
+      const [uname, setUname] = React.useState("");
+      const [job, setJob] = React.useState("");
+      const [message, setMessage] = React.useState("");
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+
+        fetch("https://reqres.in/api/users/5", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "reqres-free-v1"
+          },
+          body: JSON.stringify({
+            name: uname,
+            job: job
+          })
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to update user");
+            return res.json();
+          })
+          .then((data) => {
+            console.log("Success:", data);
+            setMessage("✅ User Name and job updated successfully!");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            setMessage("❌ Failed to update user.");
+          });
+      };
+
+      return (
+        <div style={{ maxWidth: "350px", margin: "40px auto", fontFamily: "Arial, sans-serif" }}>
+          <h2>Edit Username and Job</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Username:</label><br />
+              <input
+                type="text"
+                value={uname}
+                onChange={(e) => setUname(e.target.value)}
+                required
+                style={{ width: "100%", padding: "6px", marginBottom: "8px" }}
+              />
+            </div>
+            <div>
+              <label>Job:</label><br />
+              <input
+                type="text"
+                value={job}
+                onChange={(e) => setJob(e.target.value)}
+                required
+                style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+              />
+            </div>
+            <button type="submit" style={{ padding: "10px 20px" }}>Update</button>
+          </form>
+          {message && <p style={{ marginTop: "15px" }}>{message}</p>}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<EditForm />);
+  </script>
+</body>
+</html>
