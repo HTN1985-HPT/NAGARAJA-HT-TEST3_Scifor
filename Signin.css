@@ -1,0 +1,24 @@
+.sinone{
+    place-self: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-image: linear-gradient(25deg, #e2f252, #b1e40a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    place-self: center;
+    align-items: center;
+}
+
+#chk1{
+    margin-top: -25%;
+    margin-left: 30%;
+    
+}
+
+.loginbtn{
+    margin-left: 35%;
+  }
